@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Fact Checker",
+  "version": "0.1.0",
+  "description": "A browser extension that captures YouTube captions and displays live fact-checking information.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "YouTube Fact Checker"
+  }
+}
